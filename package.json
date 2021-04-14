@@ -1,0 +1,19 @@
+{
+  "name": "real-time-chart-node-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "prashant",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/basic": "^6.0.0",
+    "@hapi/hapi": "^20.1.2",
+    "hapi-plugin-websocket": "^2.3.2",
+    "joi": "^17.4.0",
+    "uuid": "^8.3.2"
+  }
+}
