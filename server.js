@@ -17,9 +17,10 @@ const utilities = require("./utilities");
     options: {
       validate: {
         payload: Joi.object({
-          time: Joi.date().default(Date.now()).optional(),
+          startTime: Joi.date().default(Date.now()).optional(),
+          endTime: Joi.date().default(Date.now()).optional(),
           topActiveUsers: Joi.number().default(5).optional(),
-          fixedUsers: Joi.bool().default(false).optional(),
+          fixedVisitor: Joi.bool().default(false).optional(),
         }),
       },
       payload: { output: "data", parse: true, allow: "application/json" },
@@ -35,8 +36,9 @@ const utilities = require("./utilities");
       },
     },
     handler: (request, h) => {
-      const data = request.payload
-      return utilities.getData(data.time, data.topActiveUsers, data.fixedUsers);
+      const data = request.payload 
+      const dummyChartData = utilities.getData(data.startTime, data.topActiveUsers, data.fixedVisitor)
+      return dummyChartData;
     },
   });
 

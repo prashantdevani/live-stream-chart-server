@@ -15,22 +15,21 @@ function addSecondes(date, secondes) {
   return new Date(date.getTime() + secondes * 1000);
 }
 
-function getData(time, topActiveUsers, fixedUsers) {
+function getData(time, topActiveUsers, fixedVisitor) {
   const dataset = [];
   let redomUsers = rendomNumber(1, topActiveUsers);
 
- /*  if (fixedUsers) {
-    redomUsers = topActiveUsers;
-  } */
-
   for (let i = 1; i <= redomUsers; i++) {
+    const visitorNumber = fixedVisitor ? 0: rendomNumber(1, 100);
     const data = {
       _id: uuid.v4(),
       size: rendomNumber(1, 30),
-      visiter_name: fixedUsers ? `user_${i}` : `user_${rendomNumber(1, 100)}`,
+      visitor_name: fixedVisitor ? `Visitor ${i}` : `Visitor ${visitorNumber}`,
+      visitor_id: fixedVisitor ? `visitor_${i}` : `visitor_${visitorNumber}`
     };
-    data.date = addSecondes(addSecondes(time, 30), 1).getTime();
-    dataset.push(data);
+    data.date = addSecondes(addSecondes(time, 40), 1).getTime();
+    const activityLevelData = {...data, visitor_name:'Activity Level', _id: uuid.v4()}
+    dataset.push(activityLevelData, data)
   }
   return dataset;
 }

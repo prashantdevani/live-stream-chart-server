@@ -1,5 +1,5 @@
 {
-  "name": "real-time-chart-node-server",
+  "name": "live-stream-chart-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
